@@ -41,6 +41,8 @@ jobs:
       with:
         load: true
         tags: any-sync-tools:test
+        labels: ${{ steps.meta.outputs.labels }}
+        annotations: ${{ steps.meta.outputs.annotations }}
 
     - name: Test before push
       run: |
