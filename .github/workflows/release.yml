@@ -22,10 +22,20 @@ jobs:
       uses: docker/login-action@v3
       with:
         registry: ghcr.io
-        username: ${{ github.actor }}
+        username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Build and push
+    - name: Build image
+      uses: docker/build-push-action@v6
+      with:
+        load: true
+        tags: any-sync-tools:test
+
+    - name: Test before push
+      run: |
+        docker run --rm any-sync-tools:test | grep "Configuration builder"
+
+    - name: Push image
       uses: docker/build-push-action@v6
       with:
         platforms: linux/amd64,linux/arm64
