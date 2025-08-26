@@ -10,9 +10,6 @@ name: Build and release
 jobs:
   push-docker-image:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        platform: [linux/amd64, linux/arm64]
 
     steps:
     - name: Set up QEMU
@@ -42,7 +39,7 @@ jobs:
     - name: Build and push image
       uses: docker/build-push-action@v6
       with:
-        platforms: ${{ matrix.platform }}
+        platforms: linux/amd64,linux/arm64
         push: true
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
