@@ -24,7 +24,7 @@ RUN --mount=type=cache,target=/root/.cache/go-build \
 
 
 # Step 2: Runtime
-FROM gcr.io/distroless/static-debian12
+FROM alpine:3.22.1
 
 # OCI labels
 LABEL org.opencontainers.image.title="any-sync-tools" \
