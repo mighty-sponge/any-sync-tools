@@ -28,7 +28,7 @@ FROM gcr.io/distroless/static-debian12
 
 # OCI labels
 LABEL org.opencontainers.image.title="any-sync-tools" \
-      org.opencontainers.image.description="Any-Sync tools bundle: any-sync-network, any-sync-netcheck, anyconf" \
+      org.opencontainers.image.description="Configuration tools for Any-Sync network" \
       org.opencontainers.image.source="https://github.com/anyproto/any-sync-tools" \
       org.opencontainers.image.licenses="MIT"
 

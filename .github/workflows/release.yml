@@ -35,6 +35,8 @@ jobs:
           type=ref,event=tag
         flavor: |
           latest=auto
+        annotations: |
+          org.opencontainers.image.description=Configuration tools for Any-Sync network
 
     - name: Build image
       uses: docker/build-push-action@v6
