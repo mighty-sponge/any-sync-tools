@@ -52,6 +52,8 @@ jobs:
         labels: ${{ steps.meta.outputs.labels }}
         outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=Configuration tools for Any-Sync network
 
+    - uses: actions/checkout@v4
+
     - name: Docker Hub Description
       uses: peter-evans/dockerhub-description@v4
       with:
