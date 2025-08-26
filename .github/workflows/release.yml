@@ -30,8 +30,11 @@ jobs:
       uses: docker/metadata-action@v5
       with:
         images: |
-          ghcr.io/${{ github.repository }}/any-sync-tools:latest
-          ghcr.io/${{ github.repository }}/any-sync-tools:${{ github.ref_name }}
+          ghcr.io/${{ github.repository }}/any-sync-tools
+        tags: |
+          type=ref,event=tag
+        flavor: |
+          latest=auto
 
     - name: Build image
       uses: docker/build-push-action@v6
