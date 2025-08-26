@@ -37,7 +37,7 @@ jobs:
       with:
         images: |
           ghcr.io/${{ github.repository }}
-          ${{ github.repository }}
+          docker.io/seroxow302/any-sync-tools
         tags: |
           type=ref,event=tag
         flavor: |
