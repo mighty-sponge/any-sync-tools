@@ -25,19 +25,12 @@ jobs:
         username: ${{ github.repository_owner }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Log in to DockerHub
-      uses: docker/login-action@v3
-      with:
-        username: seroxow302
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-
     - name: Get docker metadata
       id: meta
       uses: docker/metadata-action@v5
       with:
         images: |
           ghcr.io/${{ github.repository }}
-          docker.io/seroxow302/any-sync-tools
         tags: |
           type=ref,event=tag
         flavor: |
@@ -51,11 +44,3 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=Configuration tools for Any-Sync network
-
-    - uses: actions/checkout@v4
-
-    - name: Docker Hub Description
-      uses: peter-evans/dockerhub-description@v4
-      with:
-        username: seroxow302
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
