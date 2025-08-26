@@ -51,3 +51,9 @@ jobs:
         tags: ${{ steps.meta.outputs.tags }}
         labels: ${{ steps.meta.outputs.labels }}
         outputs: type=image,name=target,annotation-index.org.opencontainers.image.description=Configuration tools for Any-Sync network
+
+    - name: Docker Hub Description
+      uses: peter-evans/dockerhub-description@v4
+      with:
+        username: seroxow302
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
